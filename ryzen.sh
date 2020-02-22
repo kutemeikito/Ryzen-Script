@@ -26,7 +26,7 @@ done
 
 # Clone toolchain
 if ! [ -d "../toolchain" ]; then
-    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang-build/releases/download/20200104/proton_clang-10.0.0-20200104.tar.zst
+    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang-build/releases/download/20200117/proton_clang-11.0.0-20200117.tar.zst
     mkdir -p ../toolchain/clang
     sudo tar -I zstd -xvf proton.tar.zst -C ../toolchain/clang --strip-components=1
 else
@@ -70,7 +70,7 @@ fi
 
 # clone AnyKernel3
 if ! [ -d "AnyKernel3" ]; then
-    git clone https://github.com/rama982/AnyKernel3
+    git clone https://github.com/kutemeikito/AnyKernel3
 else
     echo "${bold}AnyKernel3 directory is exist, not cloning${normal}"
 fi
