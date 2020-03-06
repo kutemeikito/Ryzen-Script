@@ -26,7 +26,7 @@ done
 
 # Clone toolchain
 if ! [ -d "../toolchain" ]; then
-    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang-build/releases/download/20200117/proton_clang-11.0.0-20200117.tar.zst
+    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang-build/releases/download/20200104/proton_clang-10.0.0-20200104.tar.zst
     mkdir -p ../toolchain/clang
     sudo tar -I zstd -xvf proton.tar.zst -C ../toolchain/clang --strip-components=1
 else
@@ -34,7 +34,7 @@ else
 fi
 
 # ENV
-CONFIG=vendor/ryzen-ginkgo_defconfig
+CONFIG=vendor/ginkgo-perf_defconfig
 KERNEL_DIR=$(pwd)
 PARENT_DIR="$(dirname "$KERNEL_DIR")"
 KERN_IMG="$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb"
