@@ -22,7 +22,7 @@ while (( ${#} )); do
 done
 
 
-[[ -z ${ZIP} ]] && { echo "${bold}Gunakan -Z atau --zip Untuk Membuat Zip Installer${normal}"; }
+[[ -z ${ZIP} ]] && { echo "${bold}Gunakan -Z atau --zip Untuk Membuat Zip Kernel Installer${normal}"; }
 
 # Clone toolchain
 if ! [ -d "../toolchain" ]; then
