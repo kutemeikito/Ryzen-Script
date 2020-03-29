@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2019 Rama Bondan Prakoso (rama982)
+# Copyright (C) 2020 Edwiin Kusuma Jaya (MWG_Ryzen)
 #
 # Simple Local Kernel Build Script
 #
@@ -22,7 +22,7 @@ while (( ${#} )); do
 done
 
 
-[[ -z ${ZIP} ]] && { echo "${bold}use -Z or --zip to make kernel installer${normal}"; }
+[[ -z ${ZIP} ]] && { echo "${bold}Gunakan -Z atau --zip Untuk Membuat Zip Installer${normal}"; }
 
 # Clone toolchain
 if ! [ -d "../toolchain" ]; then
@@ -30,7 +30,7 @@ if ! [ -d "../toolchain" ]; then
     mkdir -p ../toolchain/clang
     sudo tar -I zstd -xvf proton.tar.zst -C ../toolchain/clang --strip-components=1
 else
-    echo "${bold}Toolchain folder is exist, not cloning${normal}"
+    echo "${bold}Folder Toolchain Sudah Tersedia, Tidak Perlu Di Clone${normal}"
 fi
 
 # ENV
@@ -62,7 +62,7 @@ echo -e "${bold}Compiling with CLANG${normal}\n$KBUILD_COMPILER_STRING"
 clang_build
 
 if ! [ -a "$KERN_IMG" ]; then
-    echo "${bold}Build error, please fix the issue${normal}"
+    echo "${bold}Build error, Tolong Perbaiki Masalah Ini${normal}"
     exit 1
 fi
 
@@ -72,7 +72,7 @@ fi
 if ! [ -d "AnyKernel3" ]; then
     git clone https://github.com/kutemeikito/AnyKernel3
 else
-    echo "${bold}AnyKernel3 directory is exist, not cloning${normal}"
+    echo "${bold}Direktori AnyKernel3 Sudah Ada, Tidak Perlu di Clone${normal}"
 fi
 
 # ENV
@@ -94,7 +94,7 @@ wifi_modules () {
             cp "${MODULES}" "${VENDOR_MODULEDIR}/qca_cld3_wlan.ko" ;;
         esac
     done
-    echo -e "(i) Done moving wifi modules"
+    echo -e "(i) Selesai Memindahkan wifi modules"
 }
 
 # Make zip
