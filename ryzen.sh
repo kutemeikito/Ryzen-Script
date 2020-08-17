@@ -26,8 +26,8 @@ done
 
 # Clone toolchain
 if ! [ -d "../toolchain" ]; then
-    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang-build/releases/download/20200104/proton_clang-10.0.0-20200104.tar.zst
-    mkdir -p ../toolchain/clang
+    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang/archive/20200801.tar.gz
+    mkdir -p ../toolchain/clang12.0
     sudo tar -I zstd -xvf proton.tar.zst -C ../toolchain/clang --strip-components=1
 else
     echo "${bold}Folder Toolchain Sudah Tersedia, Tidak Perlu Di Clone${normal}"
@@ -39,14 +39,14 @@ KERNEL_DIR=$(pwd)
 PARENT_DIR="$(dirname "$KERNEL_DIR")"
 KERN_IMG="$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb"
 export KBUILD_BUILD_USER="EdwiinKJ"
-export KBUILD_BUILD_HOST="Windows10Pro"
-export PATH="$PARENT_DIR/toolchain/clang/bin:$PATH"
-export LD_LIBRARY_PATH="$PARENT_DIR/toolchain/clang/lib:$LD_LIBRARY_PATH"
-export KBUILD_COMPILER_STRING="$("$PARENT_DIR"/toolchain/clang/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
+export KBUILD_BUILD_HOST="AMDRyzen"
+export PATH="$PARENT_DIR/toolchain/nusantaraclang12/bin:$PATH"
+export LD_LIBRARY_PATH="$PARENT_DIR/toolchain/nusantaraclang12/lib:$LD_LIBRARY_PATH"
+export KBUILD_COMPILER_STRING="$("$PARENT_DIR"/toolchain/nusantaraclang12/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
 
 # Functions
 clang_build () {
-    make -j$(nproc --all) O=out \
+    make -j4 O=out \
                           ARCH=arm64 \
                           CC="clang" \
                           AR="llvm-ar" \
@@ -79,23 +79,6 @@ fi
 ZIP_DIR=$KERNEL_DIR/AnyKernel3
 VENDOR_MODULEDIR="$ZIP_DIR/modules/vendor/lib/modules"
 STRIP="aarch64-linux-gnu-strip"
-
-# Functions
-wifi_modules () {
-    # credit @adekmaulana
-    for MODULES in $(find "$KERNEL_DIR/out" -name '*.ko'); do
-        "${STRIP}" --strip-unneeded --strip-debug "${MODULES}"
-        "$KERNEL_DIR/out/scripts/sign-file" sha512 \
-                "$KERNEL_DIR/out/certs/signing_key.pem" \
-                "$KERNEL_DIR/out/certs/signing_key.x509" \
-                "${MODULES}"
-        case ${MODULES} in
-                */wlan.ko)
-            cp "${MODULES}" "${VENDOR_MODULEDIR}/qca_cld3_wlan.ko" ;;
-        esac
-    done
-    echo -e "(i) Selesai Memindahkan wifi modules"
-}
 
 # Make zip
 make -C "$ZIP_DIR" clean
