@@ -42,8 +42,6 @@ export KBUILD_BUILD_HOST="AMDRyzen"
 export PATH="/home/ryzen/toolchain/nusantaraclang12/bin:$PATH"
 export LD_LIBRARY_PATH="/home/ryzen/toolchain/nusantaraclang12/lib:$LD_LIBRARY_PATH"
 export KBUILD_COMPILER_STRING="$(/home/ryzen/toolchain/nusantaraclang12/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
-export CROSS_COMPILE=/home/ryzen/gcc/aarch64-maestro/bin/aarch64-maestro-linux-gnu-
-export CROSS_COMPILE_ARM32=/home/ryzen/gcc/arm-maestro/bin/arm-maestro-linux-gnueabi-
 export out=/home/ryzen/out-new
 
 # Functions
@@ -55,11 +53,11 @@ clang_build () {
                           NM="llvm-nm" \
 					      LD="ld.lld" \
 			              AS="llvm-as" \
+						  STRIP="llvm-strip" \
 			              OBJCOPY="llvm-objcopy" \
 			              OBJDUMP="llvm-objdump" \
-                          CLANG_TRIPLE=aarch64-linux-gnu- \
-                          CROSS_COMPILE=$CROSS_COMPILE \
-                          CROSS_COMPILE_ARM32=$CROSS_COMPILE_ARM32
+                          CROSS_COMPILE=aarch64-linux-gnu-  \
+                          CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
 
 # Build kernel
