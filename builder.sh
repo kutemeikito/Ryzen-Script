@@ -23,15 +23,6 @@ done
 
 [[ -z ${ZIP} ]] && { echo "${bold}Gunakan -Z atau --zip Untuk Membuat Zip Kernel Installer${normal}"; }
 
-# Clone toolchain
-if ! [ -d "../toolchain" ]; then
-    wget -O proton.tar.zst https://github.com/kdrag0n/proton-clang/archive/20200801.tar.gz
-    mkdir -p ../toolchain/clang12.0
-    sudo tar -I zstd -xvf proton.tar.zst -C ../toolchain/clang --strip-components=1
-else
-    echo "${bold}Folder Toolchain Sudah Tersedia, Tidak Perlu Di Clone${normal}"
-fi
-
 # ENV
 CONFIG=vendor/ginkgo-perf_defconfig
 KERNEL_DIR=$(pwd)
