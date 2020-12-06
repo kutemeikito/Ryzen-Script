@@ -26,15 +26,13 @@ sudo git merge FETCH_HEAD --log=1000 --signoff
 sudo git push
 
 ========================================================
-Merge Qcacld,Host Cmn, fw-api, techpack
+Merge Qcacld,Host Cmn, fw-api, techpack audio/data
 
 sudo git remote add qcacld-3.0 https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qcacld-3.0
 sudo git remote add qca-wifi-host-cmn https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn
 sudo git remote add fw-api https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/fw-api
 sudo git remote add audio-kernel https://source.codeaurora.org/quic/la/platform/vendor/opensource/audio-kernel
 sudo git remote add data-kernel https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/data-kernel
-
-sudo git fetch audio-kernel LA.UM.8.1.r1-15100-sm8150.0 
 
 sudo git merge -X subtree=drivers/staging/qcacld-3.0 --log=1000 --signoff FETCH_HEAD
 sudo git merge -X subtree=drivers/staging/fw-api --log=1000 --signoff FETCH_HEAD
@@ -49,15 +47,12 @@ git clone -b LA.UM.8.9.r1-09300-SM6xx.0 https://source.codeaurora.org/quic/la/pl
 git clone -b LA.UM.8.11.r1-03500-NICOBAR.0 https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/fw-api fw-api
 git clone -b LA.UM.8.9.r1-09300-SM6xx.0 https://source.codeaurora.org/quic/la/platform/vendor/opensource/audio-kernel techpack/audio
 ===========================================================
-git config --local user.email kutemeikito0905@gmail.com
+git config --local user.email <email>
 ===========================================================
 LA.UM.8.1.r1-15100-sm8150.0
 LA.UM.8.11.1.r1-00300-QCM6125.0
 LA.UM.8.11.r1-03800-NICOBAR.0 
 
 git branch -m old-name new-name
-
-sudo git fetch https://git.zx2c4.com/wireguard-linux-compat v1.0.20200712
-
 
 \\wsl$ => Directory WSL 2 Folder
