@@ -19,7 +19,7 @@ Merge CAF
 
 sudo git fetch https://source.codeaurora.org/quic/la/kernel/msm-4.9/ LA.UM.9.6.2.c25-02200-89xx.0 
 sudo git fetch https://source.codeaurora.org/quic/la/kernel/msm-4.14/  LA.UM.9.1.r1-11700-SMxxx0.0 
-sudo git fetch https://source.codeaurora.org/quic/server/kernel 
+git fetch https://git.codelinaro.org/clo/la/kernel/msm-4.14
 git fetch https://android.googlesource.com/kernel/common android-4.14-stable
 git fetch https://android.googlesource.com/kernel/common upstream-linux-4.9.y
 
@@ -29,6 +29,7 @@ sudo git push
 
 ========================================================
 Merge Qcacld,Host Cmn, fw-api, techpack audio/data
+CAF
 #Ginkgo
 git remote add qcacld-3.0 https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qcacld-3.0
 git remote add qca-wifi-host-cmn https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn
@@ -38,6 +39,14 @@ git remote add data-kernel https://source.codeaurora.org/quic/la/platform/vendor
 
 ## For Vince
 git remote add prima https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/prima
+
+codelinaro
+git remote add qcacld-3.0 https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/wlan/qcacld-3.0
+git remote add qca-wifi-host-cmn https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn
+git remote add fw-api https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/wlan/fw-api
+git remote add audio-kernel https://git.codelinaro.org/clo/la/platform/vendor/opensource/audio-kernel
+git remote add data-kernel https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/data-kernel
+
 
 git merge -X subtree=drivers/staging/qcacld-3.0 --log=1000 --signoff -S FETCH_HEAD
 git merge -X subtree=drivers/staging/fw-api --log=1000 --signoff -S FETCH_HEAD
