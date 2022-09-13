@@ -137,7 +137,7 @@ This Hals based from Codelinaro Tag LA.UM.9.1.r1-11900-SMxxx0.0, it's just for e
 
 Ginkgo Env
 git clone git@github.com:kutemeikito/RastaMod69-Clang.git -b clang-12.0 prebuilts/clang/host/linux-x86/clang-rastamod
-git clone git@github.com:kutemeikito/android_kernel_xiaomi_ginkgo.git -b MiuiRS kernel/xiaomi/ginkgo
+git clone git@github.com:kutemeikito/android_kernel_xiaomi_ginkgo.git -b Android-13.0 kernel/xiaomi/ginkgo
 git clone git@github.com:kutemeikito/vendor_xiaomi_ginkgo.git vendor/xiaomi/ginkgo
-git clone git@github.com:kutemeikito/device_xiaomi_ginkgo.git -b xdroid device/xiaomi/ginkgo
+git clone git@github.com:kutemeikito/device_xiaomi_ginkgo.git -b xdroid-13.0 device/xiaomi/ginkgo
 git clone --depth=1 https://github.com/ArrowOS-Devices/android_vendor_miuicamera -b arrow-12.0-a3 vendor/miuicamera
