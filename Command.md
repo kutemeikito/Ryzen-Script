@@ -97,6 +97,11 @@
 
 # Ccache
 
+- sudo mkdir /ccache 
+- mkdir tempcc
+- sudo umount /ccache
+- sudo chmod 777 /ccache
+- sudo mount --bind $PWD/tempcc /ccache
 - export USE_CCACHE=1
 - export CCACHE_EXEC=$(which ccache)
 - export CCACHE_DIR=/ccache
@@ -112,12 +117,27 @@
 - https://git.codelinaro.org/clo/la/platform/hardware/qcom/audio LA.UM.9.1.r1-11900-SMxxx0.0
 
 
-# Ginkgo Env
-
+# Ginkgo Env setup Xdroid 13
 - git clone git@github.com:kutemeikito/RastaMod69-Clang.git -b clang-12.0 prebuilts/clang/host/linux-x86/clang-rastamod
 - git clone git@github.com:kutemeikito/android_kernel_xiaomi_ginkgo.git -b Thirteen kernel/xiaomi/ginkgo
 - git clone git@github.com:kutemeikito/vendor_xiaomi_ginkgo.git vendor/xiaomi/ginkgo
 - git clone git@github.com:kutemeikito/device_xiaomi_ginkgo.git -b xdroid-13.0 device/xiaomi/ginkgo
+- git clone --depth=1 https://github.com/ArrowOS-Devices/android_vendor_miuicamera -b arrow-12.0-a3 vendor/miuicamera
+
+# Ginkgo Env setup Ancient 12L
+
+- git clone git@github.com:kutemeikito/RastaMod69-Clang.git -b clang-12.0 prebuilts/clang/host/linux-x86/clang-rastamod
+- git clone git@github.com:kutemeikito/android_kernel_xiaomi_ginkgo.git -b Thirteen kernel/xiaomi/ginkgo
+- git clone git@github.com:ancient-devices/vendor_xiaomi_ginkgo.git -b ancient-12.1 vendor/xiaomi/ginkgo
+- git clone git@github.com:ancient-devices/device_xiaomi_ginkgo.git -b ancient-12.1 device/xiaomi/ginkgo
+- git clone --depth=1 https://github.com/ArrowOS-Devices/android_vendor_miuicamera -b arrow-12.0-a3 vendor/miuicamera
+
+# Ginkgo Env setup Ancient 13
+
+- git clone git@github.com:kutemeikito/RastaMod69-Clang.git -b clang-12.0 prebuilts/clang/host/linux-x86/clang-rastamod
+- git clone git@github.com:kutemeikito/android_kernel_xiaomi_ginkgo.git -b Thirteen kernel/xiaomi/ginkgo
+- git clone git@github.com:ancient-devices/vendor_xiaomi_ginkgo.git -b ancient-13.0 vendor/xiaomi/ginkgo
+- git clone git@github.com:ancient-devices/device_xiaomi_ginkgo.git -b ancient-13.0 device/xiaomi/ginkgo
 - git clone --depth=1 https://github.com/ArrowOS-Devices/android_vendor_miuicamera -b arrow-12.0-a3 vendor/miuicamera
 
 # XD GINKGO SETUP
