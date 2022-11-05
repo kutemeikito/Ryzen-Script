@@ -18,11 +18,11 @@
 
 # Merge Codelinaro
 
-- git fetch https://git.codelinaro.org/clo/la/kernel/msm-4.14 LA.UM.9.1.r1-12600.01-SMxxx0.QSSI13.0 
+- git fetch https://git.codelinaro.org/clo/la/kernel/msm-4.14 LA.UM.9.1.r1-12800-SMxxx0.QSSI13.0 
 - git fetch https://git.codelinaro.org/clo/la/kernel/msm-4.9 LA.UM.10.6.2.r1-02500-89xx.0
 - git fetch https://git.codelinaro.org/clo/la/kernel/common aosp-new/android-4.14-stable
 
-- git merge FETCH_HEAD --log=100 --signoff
+- git merge FETCH_HEAD --log=1000 --signoff
 - sudo git push
 
 ========================================================
@@ -112,9 +112,9 @@
 
 # Codelinaro Hals
 
-- https://git.codelinaro.org/clo/la/platform/hardware/qcom/display LA.UM.9.1.r1-11900-SMxxx0.0
-- https://git.codelinaro.org/clo/la/platform/hardware/qcom/media LA.UM.9.1.r1-11900-SMxxx0.0
-- https://git.codelinaro.org/clo/la/platform/hardware/qcom/audio LA.UM.9.1.r1-11900-SMxxx0.0
+- https://git.codelinaro.org/clo/la/platform/hardware/qcom/display LA.UM.9.1.r1-12800-SMxxx0.QSSI13.0 
+- https://git.codelinaro.org/clo/la/platform/hardware/qcom/media LA.UM.9.1.r1-12800-SMxxx0.QSSI13.0 
+- https://git.codelinaro.org/clo/la/platform/hardware/qcom/audio LA.UM.9.1.r1-12800-SMxxx0.QSSI13.0 
 
 
 # Ginkgo Env setup Xdroid 13
@@ -147,11 +147,18 @@
 - git clone https://github.com/Xdroid-Bump/xd_frameworks_av frameworks/av
 - git clone https://github.com/Xdroid-Bump/xd_frameworks_base frameworks/base
 
+# SpiceOS Ginkgo Setup
+
+- rm -rf f*/base
+- rm -rf f*/av
+- git clone git@github.com:kutemeikito/spice_android_frameworks_base frameworks/base
+- git clone git@github.com:kutemeikito/spice_android_frameworks_av frameworks/av
+
 # Ginkgo Hals Based Codelinaro
 
 - rm -rf hardware/qcom-caf/sm8150/audio
 - rm -rf hardware/qcom-caf/sm8150/media
 - rm -rf hardware/qcom-caf/sm8150/display
-- git clone git@github.com:kutemeikito/android_hardware_qcom_audio.git -b android-12.1 hardware/qcom-caf/sm8150/audio
-- git clone git@github.com:kutemeikito/android_hardware_qcom_media.git -b android-12.1 hardware/qcom-caf/sm8150/media
-- git clone git@github.com:kutemeikito/android_hardware_qcom_display.git -b android-12.1 hardware/qcom-caf/sm8150/display
+- git clone git@github.com:kutemeikito/android_hardware_qcom_audio.git -b android-13.0 hardware/qcom-caf/sm8150/audio
+- git clone git@github.com:kutemeikito/android_hardware_qcom_media.git -b android-13.0 hardware/qcom-caf/sm8150/media
+- git clone git@github.com:kutemeikito/android_hardware_qcom_display.git -b android-13.0 hardware/qcom-caf/sm8150/display
